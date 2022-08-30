@@ -6,6 +6,7 @@ jobs:
       # optionally use a convenient Ubuntu LTS + DVC + CML image
       # container: docker://ghcr.io/iterative/cml:0-dvc2-base1
       steps:
+        - uses: iterative/setup-cml@v1
         - uses: navikt/github-app-token-generator@v1
           id: get-token
           with:
@@ -26,7 +27,6 @@ jobs:
         # - uses: actions/setup-python@v2
         #   with:
         #     python-version: '3.x'
-        - uses: iterative/setup-cml@v1
         - name: Train model
           run: |
             # Your ML workflow goes here
